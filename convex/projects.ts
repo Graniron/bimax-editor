@@ -24,7 +24,6 @@ export const get = query({
   args: {},
   handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
-    console.log("User identity:", identity);
 
     if (!identity) {
       return []
