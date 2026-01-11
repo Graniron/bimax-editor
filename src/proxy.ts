@@ -1,6 +1,15 @@
-import { clerkMiddleware } from '@clerk/nextjs/server';
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
-export default clerkMiddleware();
+const isPublicRoute = createRouteMatcher([
+  "/api/inngest(.*)",
+])
+
+export default clerkMiddleware(async (auth, req) => {
+  // If needed - redirect to sign-in page for protected routes
+  // if (!isPublicRoute(req)) {
+  //   await auth.protect();
+  // }
+});
 
 export const config = {
   matcher: [
