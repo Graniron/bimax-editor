@@ -10,10 +10,10 @@ const Page = () => {
 
   return <div>
     <Button onClick={() => createProject({ name: 'New project' })}>Add new</Button>
-    {projects?.map((projects) => (
-      <div key={projects._id} className="mb-4 p-4 border rounded">
-        <h2 className="text-lg font-bold">{projects.name}</h2>
-        <div>{projects.ownerId}</div>
+    {projects?.map((project) => (
+      <div key={project._id} className="mb-4 p-4 border rounded">
+        <h2 className="text-lg font-bold">{project.name}</h2>
+        <div>{project.ownerId}</div>
       </div>
     ))}
   </div>;
