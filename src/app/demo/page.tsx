@@ -26,6 +26,22 @@ export default function DemoPage() {
     setLoading(false);
   }
 
+  const handleClientError = () => {
+    throw new Error('This is a client-side error');
+  }
+
+  const handleApiError = async () => {
+    await fetch('/api/demo/error', {
+      method: 'POST',
+    });
+  }
+
+  const handleInngestError = async () => {
+    await fetch('/api/demo/inngest-error', {
+      method: 'POST',
+    });
+  };
+
   return (
     <div className="p-8 space-x-4">
       <h1>Demo Page</h1>
@@ -36,6 +52,18 @@ export default function DemoPage() {
 
         <Button onClick={handleBackground}>
         {loading ? 'Loading...' : 'Background'}
+        </Button>
+
+        <Button onClick={handleClientError}>
+        Client Error
+        </Button>
+
+        <Button onClick={handleApiError}>
+        API Error
+        </Button>
+
+        <Button onClick={handleInngestError}>
+          Inngest Error
         </Button>
     </div>
   )
