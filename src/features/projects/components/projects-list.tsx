@@ -19,7 +19,6 @@ interface ProjectsListProps {
 const getProjectIcon = (project: Doc<"projects">) => {
   if (project.importStatus === "completed") {
     return <FaGithub className="size-3.5 text-muted-foreground" />
-    return <GlobeIcon />;
   }
 
   
@@ -65,17 +64,16 @@ const ProjectItem = ({ data }: { data: Doc<"projects">}) => {
 
 export function ProjectsList({ onViewAll }: ProjectsListProps) {
   const projects = useProjectsPartial(6);
-  console.log("DDD projects", projects);
 
   if (projects === undefined) {
     return <Spinner className="size-4 text-ring" />;
   }
 
-  const [mostResent, ...restProject] = projects;
+  const [mostRecent, ...restProject] = projects;
 
   return (
     <div className="flex flex-col gap-4">
-      {mostResent && <ContinueCard data={mostResent} />}
+      {mostRecent && <ContinueCard data={mostRecent} />}
 
       {projects.length > 0 && (
         <div className="flex flex-col gap-2">
