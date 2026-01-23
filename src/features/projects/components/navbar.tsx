@@ -49,7 +49,6 @@ export const Navbar = ({ projectId }: { projectId: Id<"projects"> }) => {
     const trimmedName = newName.trim();
     if (!trimmedName || trimmedName === project?.name) return;
 
-    console.log('DDD rename', trimmedName)
     renameProject({ id: projectId,  name: trimmedName });
   }
 
@@ -66,7 +65,7 @@ export const Navbar = ({ projectId }: { projectId: Id<"projects"> }) => {
       <Breadcrumb>
         <BreadcrumbList className="gap-0">
           <BreadcrumbItem>
-            <BreadcrumbLink className="flex items-center gap-1.5" asChild href="/projects">
+            <BreadcrumbLink className="flex items-center gap-1.5" asChild>
               <Button variant="ghost" className="w-fit! p-1.5! h-7!" asChild>
                 <Link href="/">
                   <Image src="/logo.svg" alt="Logo" width={20} height={20} />
